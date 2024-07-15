@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: sans-serif;
+}
+
+.message-list {
+  width: 80%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.bot_response {
+  background-color: #e5e5ea;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.bot_analysis {
+  background-color: #e5e5ea;
+  align-self: flex-start;
+  margin-right: auto;
+  font-family: monospace;
+  font-size: smaller;
+}
+
+.user {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.input-container {
+  margin-top: 20px;
+  display: flex;
+  width: 80%;
+  max-width: 500px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin: 0px 0px 0px 5px;
+}
+
+.suggestions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(255, 140, 0, 0.5);
+}
+.suggestions-title {
+  margin: 10px;
+  font-size: small;
+  color: white;
+  font-weight: bold;
+}
+
+.suggestions-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.suggestions-buttons button {
+  background-color: #ffa500;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.suggestions-buttons button:hover {
+  background-color: rgb(255, 140, 0);
+}
+
+.watermark {
+  font-size: small;
+  font-family: monospace;
+  margin: 10px;
+}
+
+.watermark a {
+  color: #555;
+  text-decoration: underline;
+}
+
+.watermark a:hover {
+  color: #000;
+}
