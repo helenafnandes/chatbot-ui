@@ -12,7 +12,7 @@ This application was developed to enable easy viewing and testing of [this chatb
 
 ### Live Demonstration
 
-Experience the chatbot through a live web application by following [this link](link).
+Experience the chatbot through a live web application by following [this link](https://chatbot-webapp-one.vercel.app/).
 
 ### Local Installation
 
