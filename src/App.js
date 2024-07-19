@@ -47,14 +47,12 @@ function App() {
     const userMessage = { text: inputValue, sender: "user" };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    // Add a typing indicator
-    const typingIndicator = { text: "Writing...", sender: "bot_typing" };
+    const typingIndicator = { text: "Just a moment...", sender: "bot_typing" };
     setMessages((prevMessages) => [...prevMessages, typingIndicator]);
 
     axios
       .post(`${API_BASE_URL}/api/chatbot`, { message: inputValue })
       .then((response) => {
-        // Remove typing indicator
         setMessages((prevMessages) =>
           prevMessages.filter((message) => message.sender !== "bot_typing")
         );
@@ -76,7 +74,6 @@ function App() {
       })
       .catch((error) => {
         console.error("There was an error!", error);
-        // Remove typing indicator on error
         setMessages((prevMessages) =>
           prevMessages.filter((message) => message.sender !== "bot_typing")
         );
