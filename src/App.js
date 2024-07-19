@@ -5,7 +5,7 @@ import MessageList from "./MessageList";
 import InputSection from "./InputSection";
 import SuggestionSection from "./SuggestionSection";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -136,8 +136,11 @@ function App() {
         handleSuggestion={handleSuggestion}
       />
       <div className="watermark">
-        <a href="https://github.com/helenafnandes" target="_blank">
-          Made by Helena
+        <a
+          href="https://github.com/helenafnandes/mood-analyzer-chatbot"
+          target="_blank"
+        >
+          Chatbot Project by Helena Ferreira Fernandes - View on GitHub
         </a>
       </div>
     </div>
