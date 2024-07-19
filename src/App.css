@@ -125,3 +125,16 @@ button:hover {
 .watermark a:hover {
   color: #000;
 }
+
+.bot_typing {
+  background-color: #e5e5ea;
+  border: 1px dashed #d0d0d0;
+  color: #888;
+  align-self: flex-start;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: smaller;
+  text-align: center;
+}

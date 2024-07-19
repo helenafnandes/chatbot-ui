@@ -37,7 +37,6 @@ function App() {
       })
       .catch((error) => {
         console.error("There was an error!", error);
-        // Retry after 3 seconds
         setTimeout(fetchWelcomeMessage, 3000);
       });
   };
@@ -48,9 +47,18 @@ function App() {
     const userMessage = { text: inputValue, sender: "user" };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
+    // Add a typing indicator
+    const typingIndicator = { text: "Writing...", sender: "bot_typing" };
+    setMessages((prevMessages) => [...prevMessages, typingIndicator]);
+
     axios
       .post(`${API_BASE_URL}/api/chatbot`, { message: inputValue })
       .then((response) => {
+        // Remove typing indicator
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.sender !== "bot_typing")
+        );
+
         const botAnalysisMessage = {
           text: `Spell check: ${response.data.corrected_message}\nSentiment: ${response.data.sentiment}`,
           sender: "bot_analysis",
@@ -68,42 +76,14 @@ function App() {
       })
       .catch((error) => {
         console.error("There was an error!", error);
+        // Remove typing indicator on error
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.sender !== "bot_typing")
+        );
       });
 
     setInputValue("");
   };
-
-  /*
-  const handleMessageSend = () => {
-    if (inputValue.trim() === "") return;
-
-    const userMessage = { text: inputValue, sender: "user" };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
-
-    axios
-      .get(`${API_BASE_URL}/api/chatbot`, { params: { message: inputValue } })
-      .then((response) => {
-        const botAnalysisMessage = {
-          text: `Spell check: ${response.data.corrected_message}\nSentiment: ${response.data.sentiment}`,
-          sender: "bot_analysis",
-        };
-        const botResponseMessage = {
-          text: response.data.response,
-          sender: "bot_response",
-        };
-
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          botAnalysisMessage,
-          botResponseMessage,
-        ]);
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
-
-    setInputValue("");
-  };*/
 
   const handleSuggestion = (suggestionText) => {
     setInputValue(suggestionText);
