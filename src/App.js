@@ -117,7 +117,7 @@ function App() {
           href="https://github.com/helenafnandes/mood-analyzer-chatbot"
           target="_blank"
         >
-          Chatbot Project by Helena Ferreira Fernandes - View on GitHub
+          Chatbot Project by Helena Fernandes - View on GitHub
         </a>
       </div>
     </div>
