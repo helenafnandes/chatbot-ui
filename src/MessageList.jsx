@@ -15,7 +15,7 @@ const MessageList = ({ messages, loaded }) => {
       {loaded &&
         messages.map((message, index) => (
           <div key={index} className={`message ${message.sender}`}>
-            {message.text.split("\n").map((line, i) => (
+            {(message.text ? message.text : "").split("\n").map((line, i) => (
               <span key={i}>
                 {line}
                 <br />
